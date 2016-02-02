@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div>
+        <form method="post" action="{{ action }}" novalidate="novalidate">
+
+            <div>{{ form_errors(form.aaa) }}{{ form_label(form.aaa) }}: {{ form_widget(form.aaa) }}</div>
+            <div>{{ form_label(form.bbb) }}: {{ form_widget(form.bbb, {'attr': {'class': 'anyClass2'}}) }}</div>
+            <div>{{ form_label(form.ccc) }}: {{ form_widget(form.ccc, {'attr': {'class': 'anyClass2'}}) }}</div>
+            {{ form_rest(form) }}<!-- prints hidden fields and others -->
+            <div><input type="submit" value="Ok"></div>
+        </form>
+    </div>
+{% endblock %}

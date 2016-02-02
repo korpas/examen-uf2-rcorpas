@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>EXAMEN UF2 CRUD</h1>
+
+    <table  border=”0″ cellpadding=”0″ cellspacing=”0″>
+        <tr BGCOLOR="#7fffd4">
+            <th>id</th>
+            <th>aaa</th>
+            <th>bbb</th>
+            <th>ccc</th>
+            <th>Creado</th>
+            <th>Actualizado</th>
+        </tr>
+        {% for asd in asd %}
+            <tr bgcolor="cyan">
+                <td>{{ asd.id }}</td>
+                <td>{{ asd.aaa }}</td>
+                <td>{{ asd.bbb }}</td>
+                <td>{{ asd.ccc }}</td>
+                <td>{{ asd.createdAt|date("d/m/Y H:i:s") }}</td>
+                <td>{{ asd.updatedAt|date("d/m/Y H:i:s") }}</td>
+                <td><a href="{{ path('app_asd_update', {'id': asd.id}) }}">EDITAR</a></td>
+                <td><a href="{{ path('app_asd_remove', {'id': asd.id}) }}">BORRAR</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div style="margin-top: 10px">
+
+    <ul>
+        <li><a href="{{ path('app_asd_insert') }}">insert</a>   </li>
+    </ul>
+
+{% endblock %}
